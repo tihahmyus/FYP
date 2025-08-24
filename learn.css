@@ -1,0 +1,333 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+  body, h1, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    text-align: justify;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Navigation Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.nav-logo {
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  padding-left: 32px;
+}
+
+.logo-image {
+  height: 30px; /* Adjust the size of the logo */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 8px; /* Adds space between logo and text */
+}
+
+.nav-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-right: 0;
+  padding-right: 32px;
+}
+
+.nav-right a {
+  color: black;
+  font-weight: 500;
+  padding:0;
+  line-height: 1.2;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-right a:hover {
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+.profile-icon {
+  font-size: 24px; /* Adjust size */
+  color: #333; /* Adjust color */
+  margin-left: 10px; /* Add spacing if necessary */
+  vertical-align: middle; /* Align with other links */
+  cursor: pointer; /* Make it clickable */
+}
+
+.hamburger {
+  display: none; /* Hide by default */
+  font-size: 30px;
+  padding-right: 32px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none; /* Hidden by default */
+  background-color: white;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1000;
+}
+
+@media (max-width: 680px) {
+  .top-bar {
+    padding: 0; /* Remove overall padding */
+    height: 60px; /* Slightly taller for better touch targets */
+  }
+
+  .nav-logo {
+    padding-left: 16px; /* Reduced padding for alignment with smaller .container */
+    font-size: 16px; /* Optional: Adjust font size for smaller screens */
+  }
+
+  .nav-right {
+      display: none; /* Hide links on small screens */
+  }
+
+  .hamburger {
+      display: block;
+      padding-right: 16px;
+      font-size: 30px;
+      cursor: pointer;
+      color: black;
+  }
+
+  .mobile-menu {
+      display: none; /* Hidden by default */
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+  }
+
+  .mobile-menu.active {
+      display: block; /* Show when 'active' class is added */
+  }
+
+  .mobile-menu a {
+      display: block;
+      padding: 10px;
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+  }
+
+  .mobile-menu a:hover {
+      background-color: #f1f1f1;
+  }
+}
+
+.container {
+    padding: 32px;
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+    font-family: "Arial", sans-serif;
+  }
+
+  /*-----------------------------------------*/
+
+  /*About section*/
+  .title-container{
+    margin-top: 10px;
+    padding: 32px;
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+    font-family: "Arial", sans-serif;
+}
+  
+
+  .section-title {
+    border-bottom: 1px solid lightgrey;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    color: #333;
+    text-align: left;
+  }
+
+  .section-title p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+
+  .learn-container {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 500px;
+    background-color: #18bc9c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #18bc9c;
+}
+
+.content-frame {
+    flex-grow: 1;
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.content-frame h2 {
+    margin-bottom: 10px;
+}
+
+.content-frame p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+  /*last part*/
+
+.bottom-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px; /* Adjust this value to control the height */
+    overflow: hidden;
+  }
+  
+  .bottom-image {
+    width: 100%;
+    height: 100%; /* Let the height scale proportionally */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1; /* Ensures the overlay is above the image */
+  }
+  
+  @media (max-width: 680px) {
+    .bottom-container {
+      max-height: 200px; /* Smaller height for smaller screens */
+    }
+  }
+  
+  /* Footer */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensures the footer spans the full width of the browser */
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 16px 0;
+    z-index: 100; /* Keeps the footer on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #76ff03;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column; /* Stack content vertically */
+      padding: 20px 0;
+    }
+  
+    .footer a {
+      margin: 8px 0; /* Space links vertically */
+    }
+  }
+  

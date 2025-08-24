@@ -1,0 +1,411 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body, h1, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    text-align: justify;
+  }
+
+body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  /* Navigation Bar */
+  .top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .nav-logo {
+    display: flex;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    padding-left: 32px;
+  }
+  
+  .logo-image {
+    height: 30px; /* Adjust the size of the logo */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Adds space between logo and text */
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-right: 0;
+    padding-right: 32px;
+  }
+  
+  .nav-right a {
+    color: black;
+    font-weight: 500;
+    padding:0;
+    line-height: 1.2;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+  }
+  
+  .nav-right a:hover {
+    background-color: #f1f1f1;
+    color: #000;
+  }
+  
+  .profile-icon {
+    font-size: 24px; /* Adjust size */
+    color: #333; /* Adjust color */
+    margin-left: 10px; /* Add spacing if necessary */
+    vertical-align: middle; /* Align with other links */
+    cursor: pointer; /* Make it clickable */
+  }
+  
+
+  .hamburger {
+    display: none; /* Hide by default */
+    font-size: 30px;
+    padding-right: 32px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none; /* Hidden by default */
+    background-color: white;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  @media (max-width: 680px) {
+    .top-bar {
+      padding: 0; /* Remove overall padding */
+      height: 60px; /* Slightly taller for better touch targets */
+    }
+  
+    .nav-logo {
+      padding-left: 16px; /* Reduced padding for alignment with smaller .container */
+      font-size: 16px; /* Optional: Adjust font size for smaller screens */
+    }
+  
+    .nav-right {
+        display: none; /* Hide links on small screens */
+    }
+  
+    .hamburger {
+        display: block;
+        padding-right: 16px;
+        font-size: 30px;
+        cursor: pointer;
+        color: black;
+    }
+  
+    .mobile-menu {
+        display: none; /* Hidden by default */
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+  
+    .mobile-menu.active {
+        display: block; /* Show when 'active' class is added */
+    }
+  
+    .mobile-menu a {
+        display: block;
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+    }
+  
+    .mobile-menu a:hover {
+        background-color: #f1f1f1;
+    }
+  }
+
+  /*About section*/
+  .title-container{
+    margin-top: 10px;
+    padding: 32px;
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+    font-family: "Arial", sans-serif;
+}
+  
+
+  .section-title {
+    border-bottom: 1px solid lightgrey;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    color: #333;
+    text-align: left;
+  }
+
+  .section-title p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#suggestions {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+.container {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 20px;
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    width: 250px; /* Fixed width */
+    height: 300px;
+    background-color: #f9caf4;
+}
+
+@media (max-width: 680px) {
+    .container {
+        grid-template-columns: 1fr; /* 1 column for devices 680px or smaller */
+    }
+
+    .card {
+        width: 250px; /* Keep width fixed even for smaller screens */
+        height: 300px;
+        padding: 15px;  /* Slightly larger padding for small screens */
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.card a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.card a:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style for the pet details inside the modal */
+.pet-details {
+    text-align: center;
+}
+
+.pet-details img {
+    width: 200px;
+    height: auto;
+    margin: 20px 0;
+}
+
+/*last part*/
+
+.bottom-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px; /* Adjust this value to control the height */
+    overflow: hidden;
+  }
+  
+  .bottom-image {
+    width: 100%;
+    height: 100%; /* Let the height scale proportionally */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1; /* Ensures the overlay is above the image */
+  }
+  
+  @media (max-width: 680px) {
+    .bottom-container {
+      max-height: 200px; /* Smaller height for smaller screens */
+    }
+  }
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ensures the footer spans the full width of the browser */
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 16px 0;
+    z-index: 100; /* Keeps the footer on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #76ff03;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column; /* Stack content vertically */
+      padding: 20px 0;
+    }
+  
+    .footer a {
+      margin: 8px 0; /* Space links vertically */
+    }
+  }
+  

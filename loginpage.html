@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyPet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+  <nav>
+    <div class="top-bar">
+        <a href="index.html#home" class="nav-logo">
+          <img src="imgs/logo.png" alt="Logo" class="logo-image">
+          <b>MY</b>Pet</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="nav-right">
+            <a href="index.html#about">About</a>
+            <a href="index.html#Contact">Contact</a>
+            <a href="index.html#pet-display">Our Pets</a>
+            <a href="services.html">Services</a>
+            <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="login.html">Login</a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <a href="index.html#about">About</a>
+   <a href="index.html#Contact">Contact</a>
+  <a href="index.html#pet-display">Our Pets</a>
+  <a href="services.html">Services</a>
+   <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="login.html">Login</a>
+</div>
+
+<div class="container">
+    <div class="login-container">
+        <!-- Login Form -->
+        <form class="login-form" id="loginForm" method="POST" action="login.php" onsubmit="handleLoginOrOtp(event)">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Username" required>
+            <div class="password-field">
+                <input type="password" name="password" placeholder="Password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility()">
+                    <i class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+            <input type="submit" value="Login">
+            <p>Don't have an account? <a href="register.html">Register here.</a></p>
+            <p>Login as 
+                <a href="">Caregiver</a> | 
+                <a href="">Admin</a>
+            </p>
+            
+            <a href="forgot_password.html">Forgot Password?</a>
+            <div id="loadingSpinner" class="hidden">
+                <i class="fas fa-spinner fa-spin"></i> Processing...
+            </div>
+        </form>
+  
+
+
+        <!-- OTP Form -->
+        <form class="otp-form hidden" id="otpForm" method="POST" onsubmit="handleLoginOrOtp(event)">
+            <h2>Enter OTP</h2>
+            <input type="hidden" name="username" id="otpUsername">
+            <input type="text" name="otp" placeholder="Enter OTP" required>
+            <input type="submit" value="Verify OTP">
+        </form>
+    </div>
+</div>
+
+
+
+<footer class="footer">
+    <p>&copy; 2024 MyPet. All rights reserved.</p>
+</footer>
+
+<script>
+let isOtpStage = false;
+
+function handleLoginOrOtp(event) {
+    event.preventDefault();
+    const loginForm = document.getElementById('loginForm');
+    const otpForm = document.getElementById('otpForm');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    // Show spinner
+    loadingSpinner.classList.remove('hidden');
+
+    const formData = new FormData(isOtpStage ? otpForm : loginForm);
+    const endpoint = isOtpStage ? 'verify_otp.php' : 'login.php';
+
+    fetch(endpoint, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        loadingSpinner.classList.add('hidden'); // Hide spinner
+
+        if (result.status === 'success') {
+            alert(result.message); // Use alert for better visual feedback
+            if (isOtpStage) {
+                window.location.href = result.redirect_url;
+            } else {
+                isOtpStage = true;
+                document.getElementById('otpUsername').value = loginForm.username.value;
+                loginForm.classList.add('hidden');
+                otpForm.classList.remove('hidden');
+            }
+        } else {
+            alert(result.message); // Enhanced error feedback
+        }
+    })
+    .catch(error => {
+        loadingSpinner.classList.add('hidden'); // Hide spinner
+        console.error('Error:', error)
+});
+}
+
+function togglePasswordVisibility() {
+    const passwordField = document.querySelector('input[name=password]');
+    const passwordToggle = document.querySelector('.password-toggle i');
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        passwordToggle.classList.remove('fa-eye-slash');
+        passwordToggle.classList.add('fa-eye');
+    } else {
+        passwordField.type = 'password';
+        passwordToggle.classList.remove('fa-eye');
+        passwordToggle.classList.add('fa-eye-slash');
+    }
+}
+
+function toggleMenu() {
+    const navRight = document.querySelector('.nav-right');
+    navRight.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

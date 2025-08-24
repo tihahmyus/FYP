@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyPet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"  href="learn.css">
+</head>
+
+<body>
+
+<!-- Navigation -->
+  <nav>
+    <div class="top-bar">
+        <a href="index.html#home" class="nav-logo">
+          <img src="imgs/logo.png" alt="Logo" class="logo-image">
+          <b>MY</b>Pet</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="nav-right">
+            <a href="index.html#about">About</a>
+            <a href="index.html#Contact">Contact</a>
+            <a href="index.html#pet-display">Our Pets</a>
+            <a href="services.html">Services</a>
+            <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <a href="index.html#about">About</a>
+   <a href="index.html#Contact">Contact</a>
+  <a href="index.html#pet-display">Our Pets</a>
+  <a href="services.html">Services</a>
+   <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+</div>
+<!------------------------------------------------------------------->
+<!-- Page content -->
+<div class="title-container" id="featured-pets">
+    <h3 class="section-title">Featured Pets</h3>
+    <p>Welcome to our Learning Space, where pet owners 
+      can grow into confident caregivers through knowledge and guidance. We believe informed owners make for happier, 
+      healthier pets. That’s why we’ve created a dedicated section packed with resources to help you understand and care 
+      for your pets in every way possible.
+    </p>
+    <p>
+      From essential topics like vaccination schedules and nutrition tips to specialized insights on hypoallergenic 
+      care and Islamic practices for taharah, our Learning Space is here to answer your questions and support you every step of the way.
+    </p>
+    <p>
+      Whether you’re a first-time owner or a seasoned pet lover, our easy-to-follow guides and expert tips ensure you’re equipped to provide 
+      the best for your furry friends. Dive in and discover how knowledge can strengthen the bond between you and your pet!
+    </p>
+  </div>
+
+<div class="container">
+    <!-- Main content area -->
+    <div class="learn-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Topics</h2>
+            <ul>
+                <li><a href="#" onclick="loadContent('cat')">Cats</a></li>
+                <li><a href="#" onclick="loadContent('catIslam')">Cats in Islam</a></li>
+                <li><a href="#" onclick="loadContent('catPurity')">Cats and Taharah</a></li>
+                <li><a href="#" onclick="loadContent('dog')">Dogs</a></li>
+                <li><a href="#" onclick="loadContent('dogIslam')">Dogs in Islam</a></li>
+                <li><a href="#" onclick="loadContent('dogPurity')">Dogs and Taharah</a></li>
+                <li><a href="#" onclick="loadContent('allergen')">Hypoallergenic Pets</a></li>
+                <li><a href="#" onclick="loadContent('diet')">Dietary</a></li>
+                <li><a href="#" onclick="loadContent('vaccine')">Vaccination</a></li>
+            </ul>
+        </div>
+
+        <!-- Main content frame -->
+        <div class="content-frame" id="content-frame">
+            <h2>Let's get to know our paw buddies more deeply!</h2>
+            <p>Click on the topics in the sidebar to start learning.</p>
+            <p>Do you know that cats and dogs have their own version of a fingerprint?</p>
+            <p>It's their nose!</p>
+        </div>
+    </div>
+</div>
+
+
+<!------------------------------------------------------------------->
+
+<div class="bottom-container">
+    <img src="imgs/indexbottom.jpg" alt="Image" class="bottom-image">
+    <div class="overlay"></div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 MyPet. All rights reserved.</p>
+  </footer>
+
+  <script src="trylearn.js"></script>
+  <script src="toggle-index.js"></script>
+
+</body>
+</html>

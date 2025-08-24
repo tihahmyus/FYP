@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+ <nav>
+    <div class="top-bar">
+        <a href="index.html#home" class="nav-logo">
+          <img src="imgs/logo.png" alt="Logo" class="logo-image">
+          <b>MY</b>Pet</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="nav-right">
+            <a href="index.html#about">About</a>
+            <a href="index.html#Contact">Contact</a>
+            <a href="index.html#pet-display">Our Pets</a>
+            <a href="services.html">Services</a>
+            <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#Contact">Contact</a>
+  <a href="index.html#pet-display">Our Pets</a>
+  <a href="services.html">Services</a>
+   <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+</div>
+
+    <div class="container">
+    <div class="profile-container">
+    <h1>Make Donation</h1>
+    <p> Share the kindness with unfortunate animals that still have not found homes to settle in yet.
+        Your donation money will be given to local shelters or to buy food for strays.
+    </p>
+    <form action="donation.php" method="POST" enctype="multipart/form-data">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="amount">Donation Amount:</label><br>
+    <input type="number" id="amount" name="amount" required><br><br>
+    
+    <div style="text-align: center;">
+    <img src="imgs/donate.png" alt="Donation Instructions" style="max-width: 100%; height: auto; width: 60%;"><br><br> <!-- Example image -->
+    </div>
+
+    <label for="receipt">Upload Receipt (Images or PDF):</label><br>
+    <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required><br><br>
+
+    <input type="submit" value="Submit Donation">
+  
+</form>
+<div>
+    <div>
+<footer class="footer">
+      <p>&copy; 2024 MyPet. All rights reserved.</p>
+    </footer>
+  
+    <script src="toggle-index.js"></script>
+
+</body>
+</html>

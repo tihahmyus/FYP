@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="petdisplay.css">
+</head>
+<body>
+
+<!-- Navigation -->
+  <nav>
+    <div class="top-bar">
+        <a href="index.html#home" class="nav-logo">
+          <img src="imgs/logo.png" alt="Logo" class="logo-image">
+          <b>MY</b>Pet</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="nav-right">
+            <a href="index.html#about">About</a>
+            <a href="index.html#Contact">Contact</a>
+            <a href="index.html#pet-display">Our Pets</a>
+            <a href="services.html">Services</a>
+            <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+  <a href="index.html#about">About</a>
+   <a href="index.html#Contact">Contact</a>
+  <a href="index.html#pet-display">Our Pets</a>
+  <a href="services.html">Services</a>
+   <a href="learn.html">Learn</a>
+            <a href="donation.html">Donate</a>
+          <a href="loginpage.html">Login</a>
+</div>
+
+<!-- Page content -->
+<div class="title-container" id="featured-pets">
+  <h3 class="section-title">Featured Pets</h3>
+  <p>At MyPet, we believe every pet deserves a second chance at a loving home. 
+  That’s why we collaborate with trusted shelters to help rescued strays find their forever families.</p>
+</div>
+
+<!-- Search Bar (Static – not functional, just UI) -->
+<div class="search-container">
+  <form id="searchForm">
+    <select id="petGender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <select id="petType">
+      <option value="">Select Type</option>
+      <option value="Dog">Dog</option>
+      <option value="Cat">Cat</option>
+    </select>
+    <button type="button">Search</button>
+  </form>
+</div>
+
+<!-- Static Pets -->
+<div class="container">
+  <div class="card">
+    <img src="imgs/dog1.jpg" alt="Bobby">
+    <h3>Bobby</h3>
+    <button class="see-more-btn" onclick="showPet('Bobby','Friendly and playful dog looking for a home.')">See More</button>
+  </div>
+
+  <div class="card">
+    <img src="imgs/cat1.jpg" alt="Mimi">
+    <h3>Mimi</h3>
+    <button class="see-more-btn" onclick="showPet('Mimi','Calm cat that loves cuddles and quiet time.')">See More</button>
+  </div>
+
+  <div class="card">
+    <img src="imgs/cat2.jpg" alt="Snowy">
+    <h3>Snowy</h3>
+    <button class="see-more-btn" onclick="showPet('Snowy','Affectionate, but whoops! No touching.')">See More</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="petModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- Bottom Image -->
+<div class="bottom-container">
+  <img src="imgs/indexbottom.jpg" alt="Image" class="bottom-image">
+  <div class="overlay"></div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2024 MyPet. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  function toggleMenu() {
+    document.querySelector(".mobile-menu").classList.toggle("active");
+  }
+
+  function showPet(name, desc) {
+    document.getElementById("modal-body").innerHTML = 
+      "<h2>" + name + "</h2><p>" + desc + "</p>";
+    document.getElementById("petModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("petModal").style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("petModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<style>
+/* Quick minimal modal style (boleh adjust ikut CSS asal kau) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 10px;
+}
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyPet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"  href="index.css?v=1.0">
+</head>
+
+<body>
+
+  <nav>
+    <div class="top-bar">
+      <a href="index.html#home" class="nav-logo">
+        <img src="imgs/logo.png" alt="Logo" class="logo-image">
+        <b>MY</b>Pet</a>
+      <div class="nav-right">
+        <a href="index.html#about">About</a>
+        <a href="index.html#Contact">Contact</a>
+        <a href="petdisplay.html">Our Pets</a>
+        <a href="services.html">Services</a>
+        <a href="learn.html">Learn</a>
+        <a href="donation.html">Donate</a>
+        <!-- PHP removed: always show Login -->
+        <a href="loginpage.html">Login</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html#about">About</a>
+    <a href="index.html#Contact">Contact</a>
+    <a href="petdisplay.html">Our Pets</a>
+    <a href="services.html">Services</a>
+    <a href="learn.html">Learn</a>
+    <a href="donation.html">Donate</a>
+    <a href="loginpage.html">Login</a>
+  </div>
+
+  <!-- Header -->
+  <header class="header-container" id="home">
+    <img class="header-image" src="imgs/home.jpg" alt="Architecture">
+    <div class="header-overlay">
+        <h1>
+          <span class="highlight"><b>MY</b></span>
+          <span class="subtext">Pet</span>
+        </h1>
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <div class="container" id="about">
+    <h3 class="section-title">About</h3>
+    <p>Welcome to MyPet, where we believe that every pet deserves loving care...</p>
+    <!-- (same text as before, tak ubah) -->
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="imgs/connect.jpg" alt="Connect">
+        <h3>Connect</h3>
+        <p>We help you to connect to your potential paw buddies.</p>
+      </div>
+      <div class="col">
+        <img src="imgs/shelter.jpeg" alt="Shelter">
+        <h3>Shelter</h3>
+        <p>We aim to give our paw friends a chance to receive love.</p>
+      </div>
+      <div class="col">
+        <img src="imgs/insights.jpg" alt="Insights">
+        <h3>Learn</h3>
+        <p>We act as a platform for paw parents to learn about their companions.</p>
+      </div>
+      <div class="col">
+        <img src="imgs/aid.jpg" alt="Aid">
+        <h3>Aid</h3>
+        <p>We offer aid to paw parents giving the best possible care to their pets.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="container" id="Contact">
+    <h3 class="section-title">Inquiries and Suggestions</h3>
+    <p>Thank you for considering MyPet for your pet care needs! ...</p>
+  </div>
+
+  <div class="container">
+
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="text" placeholder="Email" required>
+      <input type="text" placeholder="Subject" required>
+      <textarea placeholder="Comment" required rows="5"></textarea>
+      <button type="submit" class="button">SEND MESSAGE</button>
+    </form> 
+  </div>
+    
+  <div class="bottom-container">
+    <img src="imgs/indexbottom.jpg" alt="Image" class="bottom-image">
+    <div class="overlay"></div>
+  </div>
+    
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 MyPet. All rights reserved.</p>
+  </footer>
+  
+  <script src="toggle-index.js"></script>
+</body>
+</html>
